@@ -94,26 +94,20 @@ class UserController extends Controller
 
     public function export()
     {
-        // Get the users data (replace this with your data source)
-        $users = DB::table('users')->get(); // Fetch your users data here
+        $users = DB::table('users')->get(); 
 
         $csvData = '';
 
-        // Generate CSV data
         foreach ($users as $user) {
             $csvData .= "{$user->id},{$user->name},{$user->email},{$user->address},{$user->phone},{$user->profession},{$user->is_admin},{$user->email_verified_at},{$user->created_at},{$user->updated_at},{$user->deleted_at}\n";
         }
 
-        // Define file name
         $fileName = 'users.csv';
 
-        // Save CSV data to storage
         Storage::disk('local')->put($fileName, $csvData);
 
-        // Get the full path to the file
         $filePath = storage_path("app/{$fileName}");
 
-        // Generate a response to trigger file download
         return response()->download($filePath, $fileName, [
             'Content-Type' => 'text/csv',
             'Content-Disposition' => "attachment; filename={$fileName}",

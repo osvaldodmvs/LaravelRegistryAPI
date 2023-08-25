@@ -4,7 +4,7 @@ As the title implies, a simple laravel registration project that enables registr
 
 Users are divided in admins and normal (non-admin) users, and only admins can check more sensible information (address, phone, etc), edit, directly create or even delete other users.
 
-Implemented some simple, search by name and filter by profession functionalities that can still be improved. 
+Implemented some simple, search by name and filter by profession functionalities that can still be improved. Admins can also export the user database as .csv.
 
 The database is a Docker container running PostgreSQL.
 
