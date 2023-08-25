@@ -22,9 +22,11 @@ Testing was conducted with the use of Postman.
 ```http
   token = laravel_sanctum_O8OKNGJG4BO8YfpGZGCddZBpcrlNTTH8pofrACEwd253f86d
 ```
-| Header |
-| :---------- |
-| Key   | Value      | 
-| `Authorization` | `Bearer laravel_sanctum_O8OKNGJG4BO8YfpGZGCddZBpcrlNTTH8pofrACEwd253f86d` 
+
+| Header         |
+| :------------ |
+| Key           | Value         |
+| :------------ | :------------ |
+| `Authorization` | `Bearer laravel_sanctum_O8OKNGJG4BO8YfpGZGCddZBpcrlNTTH8pofrACEwd253f86d` |
 
 Also, just as is the case via the GUI, a middleware is implemented so that only admins can access, modify or delete more sensible information.
