@@ -23,8 +23,7 @@ Testing was conducted with the use of Postman.
   token = laravel_sanctum_O8OKNGJG4BO8YfpGZGCddZBpcrlNTTH8pofrACEwd253f86d
 ```
 
-| Header         |
-| :------------ |
+#### Header
 | Key           | Value         |
 | :------------ | :------------ |
 | `Authorization` | `Bearer laravel_sanctum_O8OKNGJG4BO8YfpGZGCddZBpcrlNTTH8pofrACEwd253f86d` |
