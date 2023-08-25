@@ -6,12 +6,16 @@ Users are divided in admins and normal (non-admin) users, and only admins can ch
 
 Implemented some simple, search by name and filter by profession functionalities that can still be improved. 
 
+The database is a Docker container running PostgreSQL.
+
 ### API Access
 
 
 The API makes use of Laravel's Sanctum, with only registry and login being available without authentication via Bearer token. 
 
 The login itself promptly returns a token for the user to save and futurely use in the header of the request as the authentication value for the "Authorization" key. A "logout" handler is also provived that just revokes the token and deletes it from the database, implemented just because it was useful for testing token logic and "GUI-free" login on different users.
+
+Testing was conducted with the use of Postman.
 
 #### _Example_
 
