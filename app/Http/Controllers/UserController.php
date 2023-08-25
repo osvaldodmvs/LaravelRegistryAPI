@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Response;
 
 class UserController extends Controller
 {
@@ -87,6 +90,34 @@ class UserController extends Controller
     {
         User::findOrFail($id)->delete();
         return redirect()->route('users_index');
+    }
+
+    public function export()
+    {
+        // Get the users data (replace this with your data source)
+        $users = DB::table('users')->get(); // Fetch your users data here
+
+        $csvData = '';
+
+        // Generate CSV data
+        foreach ($users as $user) {
+            $csvData .= "{$user->id},{$user->name},{$user->email},{$user->address},{$user->phone},{$user->profession},{$user->is_admin},{$user->email_verified_at},{$user->created_at},{$user->updated_at},{$user->deleted_at}\n";
+        }
+
+        // Define file name
+        $fileName = 'users.csv';
+
+        // Save CSV data to storage
+        Storage::disk('local')->put($fileName, $csvData);
+
+        // Get the full path to the file
+        $filePath = storage_path("app/{$fileName}");
+
+        // Generate a response to trigger file download
+        return response()->download($filePath, $fileName, [
+            'Content-Type' => 'text/csv',
+            'Content-Disposition' => "attachment; filename={$fileName}",
+        ]);
     }
 
     public function search(Request $request)

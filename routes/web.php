@@ -37,4 +37,5 @@ Route::middleware(['is_admin'])->group(function () {
     Route::get('/users/edit/{user}', [UserController::class, 'edit'])->name('users_edit');
     Route::post('/users/update/{user}', [UserController::class, 'update'])->name('users_update');
     Route::post('/users/destroy/{user}', [UserController::class, 'destroy'])->name('users_destroy');
+    Route::get('/users/export', [UserController::class, 'export'])->name('users_export');
 });

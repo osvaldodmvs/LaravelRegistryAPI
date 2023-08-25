@@ -8,7 +8,12 @@
 </div>
 @endif
 <div class="d-flex justify-content-between">
-    <h2>Users</h2>
+    <div class="d-flex justify-content-between">
+    <h2 class="px-4">Users</h2>
+    @if (Auth::user()->is_admin)
+        <a href="{{route('users_export')}}"  class="px-4 btn-outline-primary d-inline-flex btn text-decoration-none rounded">Export as .csv</a></li>
+    @endif
+    </div>
     <div class="d-flex justify-content-between">
     <div class="px-4">
         <form action="{{url('users/search')}}" type="get">
@@ -47,5 +52,6 @@
     @endforelse
 </ul>
 {!! $users->links('pagination::bootstrap-5') !!}
+
 </div>
 @endsection
